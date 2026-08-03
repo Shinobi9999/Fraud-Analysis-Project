@@ -62,8 +62,11 @@ print("Depreciation:", depreciation) #depreciation
 print("Long Term Debt:", long_term_debt) #long term debt
 print("Selling, General and Administrative Expenses:", sga_expenses) #selling, general and administrative expenses
 print("Operating Cash Flow:", operating_cash_flow) #operating cash flow
+
 This code pulls the original, non repeated total assets, revenue, and receivables from the years 2013 to 2016. Since UnderArmour was growing rapidly in the course of these years, the attempt to fake their numbers to look good was tempting here.
+
 A flaw that I have noticed here is that the SEC EDGAR API does not have common tags for every company. So, if someone is pulling data needed for audit or legal purposes, it is a hassle since they have to go through every specific tag that comprises the values they need. For example, Under Armour reported revenue under SalesRevenueNet in 2014-2015 but switched to Revenues in 2013 and 2016. To handle this, I built a merge system that tries multiple known tags and combines results, prioritizing the more authoritative tag where both exist.
+
 The following values have been pulled to calculate the 8 specific ratios of the Beneish M-score formula.
 Year	Total Assets
 2013	$1.58 Billion
@@ -85,17 +88,18 @@ Year	Total Receivables
 2016	$623 Million
 
 Receivables are growing faster than revenue. Revenue roughly doubled from 2013 to 2016 (2x), but receivables nearly tripled (3x). DSRI(the first ratio in the eight ratio formula) is designed to catch this. Customers are taking longer to pay (receivables) compared to how fast the sales are growing (revenue).
+
 Year	Cost of Goods Sold
 2013	$1.19 Billion
 2014	$1.57 Billion
 2015	$2.05 Billion
 2016	$2.58 Billion
 
-Year	Revenue	Cost of Goods Sold	Cost of goods sold as % of Revenue
-2013	$2.08 Billion	$1.19 Billion	57%
-2014	$3.00 Billion	$1.57 Billion	52%
-2015	$3.96 Billion	$2.05 Billion	52%
-2016	$4.83 Billion	$2.58 Billion	53%
+Year	Revenue	        Cost of Goods Sold	    Cost of goods sold as % of Revenue
+2013	$2.08 Billion	$1.19 Billion	           57%
+2014	$3.00 Billion	$1.57 Billion	           52%
+2015	$3.96 Billion	$2.05 Billion	           52%
+2016	$4.83 Billion	$2.58 Billion	           53%
 
 Year	Current Assets
 2013	$1.12 Billion
@@ -111,6 +115,7 @@ Year	Net Property, Plant and Equipment (NPP&E)
 2016	$804 Million
 
 For depreciation, the standard EDGAR tag Depreciation only returned data for 2016. I used DepreciationAndAmortization instead, which covers all 4 years. This tag combines depreciation (loss of value of physical assets) and amortization (loss of value of intangible assets like patents) into one number. For Beneish M-Score purposes this is acceptable since the formula is looking for changes in the rate of expensing assets over time, and the combined tag captures that pattern consistently across all years.
+
 Year	Depreciation
 2013	$50 Million
 2014	$72 Million
@@ -118,6 +123,7 @@ Year	Depreciation
 2016	$144 Million
 
 For total debt, no short term debt tag existed in Under Armour's EDGAR filings for this period. I used LongTermDebt as a proxy for total debt. This is a reasonable approximation since Under Armour's debt structure during 2013-2016 was primarily long term. Their debt jumped from $53M in 2013 to $828M in 2016, mostly from long term credit facilities and notes, not short term borrowings.
+
 Year	Long Term Debt
 2013	$52 Million
 2014	$284 Million
