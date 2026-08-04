@@ -47,6 +47,7 @@ depreciation = get_annual_value("DepreciationAndAmortization", years_needed)
 long_term_debt = get_annual_value("LongTermDebt", years_needed)
 sga_expenses = get_annual_value("SellingGeneralAndAdministrativeExpense", years_needed)
 operating_cash_flow = get_annual_value("NetCashProvidedByUsedInOperatingActivities", years_needed)
+net_income_loss = get_annual_value("NetIncomeLoss", years_needed)
 
 #printing the values
 total_revenue = {**rev_backup, **rev_main} # Merge: start with backup, then overwrite with main where available
@@ -60,6 +61,7 @@ print("Depreciation:", depreciation) #depreciation
 print("Long Term Debt:", long_term_debt) #long term debt
 print("Selling, General and Administrative Expenses:", sga_expenses) #selling, general and administrative expenses
 print("Operating Cash Flow:", operating_cash_flow) #operating cash flow
+print("Net Income Loss:", net_income_loss) #net income loss
 print("---------------------------------")
 
 # ============================================
@@ -98,3 +100,33 @@ print("SGI 2014:", SGI_2014)
 print("SGI 2016:", SGI_2016)
 print("---------------------------------")
 #FIFTH RATIO: DEPI (Depreciation Index)
+Dep_Rate_2013 = depreciation['2013'] / (depreciation['2013'] + net_pp_and_e['2013'])
+Dep_Rate_2014 = depreciation['2014'] / (depreciation['2014'] + net_pp_and_e['2014'])
+Dep_Rate_2015 = depreciation['2015'] / (depreciation['2015'] + net_pp_and_e['2015'])
+Dep_Rate_2016 = depreciation['2016'] / (depreciation['2016'] + net_pp_and_e['2016'])
+DEPI_2014 = Dep_Rate_2013 / Dep_Rate_2014
+DEPI_2016 = Dep_Rate_2015 / Dep_Rate_2016
+print("DEPI 2014:", DEPI_2014)
+print("DEPI 2016:", DEPI_2016)
+print("---------------------------------")
+#SIXTH RATIO: SGAI (Sales, General and Administrative Expenses Index)
+SGAI_2014 = (sga_expenses['2014']/total_revenue['2014'])/(sga_expenses['2013']/total_revenue['2013'])
+SGAI_2016 = (sga_expenses['2016']/total_revenue['2016'])/(sga_expenses['2015']/total_revenue['2015'])
+print("SGAI 2014:", SGAI_2014)
+print("SGAI 2016:", SGAI_2016)
+print("---------------------------------")
+#SEVENTH RATIO: LVGI (Leverage Index)
+LVGI_2014 = (long_term_debt['2014']/total_assets['2014'])/(long_term_debt['2013']/total_assets['2013'])
+LVGI_2016 = (long_term_debt['2016']/total_assets['2016'])/(long_term_debt['2015']/total_assets['2015'])
+print("LVGI 2014:", LVGI_2014)
+print("LVGI 2016:", LVGI_2016)
+print("---------------------------------")
+#EIGHTH RATIO: TATA (Total Accruals to Total Assets)
+TATA_2014 = (net_income_loss['2014'] - operating_cash_flow['2014'])/total_assets['2014']
+TATA_2016 = (net_income_loss['2016'] - operating_cash_flow['2016'])/total_assets['2016']
+print("TATA 2014:", TATA_2014)
+print("TATA 2016:", TATA_2016)
+print("---------------------------------")
+# ============================================
+# SECTION 3: CALCULATE FINAL M-SCORE
+# ============================================
