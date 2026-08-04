@@ -175,13 +175,20 @@ Step 1: calculate receivables as a fraction of revenue for each year:
 Step 2: divide this year by last year:
 •	DSRI = 0.1288 ÷ 0.1094 = 1.177
 Since 0.1288 is larger than 0.1094, the result is above 1.0, meaning customers were taking longer to pay in 2016 relative to how fast sales were growing. This is a flag. In Under Armour's case, this is consistent with their revenue pull-forward scheme. They were recording sales on paper before the cash actually came in, causing unpaid receivables to pile up faster than real revenue growth.
+
 DSRI Results:
 •	2014: 0.926. This is below 1.0, no suspicion. Receivables and revenue growing at a healthy rate.
 •	2016: 1.177. This is above 1.0, flag raised. Receivables growing 18% faster than revenue, suggesting sales may be recorded before cash is actually collected. Consistent with Under Armour's confirmed revenue pull-forward scheme. 
 •	A DSRI above 1.0 in 2016 is consistent with Under Armour's actual misconduct. They were recording sales earlier than they should have, causing unpaid receivables to pile up faster than real revenue growth.
+
 GMI Results:
 •	2014: 0.896; below 1.0, no flag. Gross margin improved slightly from 2013 to 2014, meaning no financial pressure building.
 •	2016: 1.033; marginally above 1.0, weak flag. Gross margin deteriorated very slightly in 2016 vs 2015. Not a strong signal on its own. GMI measures financial pressure (motive) rather than direct manipulation. Under Armour's margins stayed relatively stable throughout this period, suggesting their fraud was about timing of revenue recognition rather than hiding margin deterioration.
+
+AQI Results:
+•	2014: 0.804 — below 1.0, no flag. Asset quality improved from 2013 to 2014.
+•	2016: 0.830 — below 1.0, no flag. Asset quality remained healthy in 2016. Under Armour's fraud did not involve shifting costs into intangible or hard-to-verify assets — their manipulation was specifically about revenue timing, not asset misclassification.
+
 
 The below code calculates all the ratios needed for the beneish formula.
 # ============================================
