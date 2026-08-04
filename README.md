@@ -159,10 +159,12 @@ Every ratio in the Beneish M-Score compares "this year" against "last year" by d
 •	Equal to 1.0 = nothing changed between years. Perfectly normal.
 •	Above 1.0 = something grew faster than it should have. The higher above 1.0, the more suspicious.
 The 1.0 benchmark isn’t random. It falls out naturally from the math. If receivables and revenue both grew at exactly the same rate, the two fractions would be identical, and identical ÷ identical = 1.0. So, 1.0 literally means "no change."
+
 DSRI 2014:
 Step 1: calculate receivables as a fraction of revenue for each year:
 •	2013: $209,952,000 ÷ $2,082,500,000 = 0.1008 (about 10 cents of every dollar in sales was unpaid)
 •	2014: $279,835,000 ÷ $2,997,916,000 = 0.0933 (about 9.3 cents of every dollar in sales was unpaid)
+
 Step 2: divide this year by last year:
 •	DSRI = 0.0933 ÷ 0.1008 = 0.926
 Since 0.0933 is smaller than 0.1008, the result is below 1.0, meaning customers were actually paying slightly faster in 2014 than in 2013. No flag. This makes sense since 2014 was a clean year for Under Armour.
@@ -172,6 +174,7 @@ DSRI 2016:
 Step 1: calculate receivables as a fraction of revenue for each year:
 •	2015: $433,638,000 ÷ $3,963,313,000 = 0.1094 (about 10.9 cents of every dollar in sales was unpaid)
 •	2016: $622,685,000 ÷ $4,833,338,000 = 0.1288 (about 12.9 cents of every dollar in sales was unpaid)
+
 Step 2: divide this year by last year:
 •	DSRI = 0.1288 ÷ 0.1094 = 1.177
 Since 0.1288 is larger than 0.1094, the result is above 1.0, meaning customers were taking longer to pay in 2016 relative to how fast sales were growing. This is a flag. In Under Armour's case, this is consistent with their revenue pull-forward scheme. They were recording sales on paper before the cash actually came in, causing unpaid receivables to pile up faster than real revenue growth.
@@ -188,6 +191,26 @@ GMI Results:
 AQI Results:
 •	2014: 0.804 — below 1.0, no flag. Asset quality improved from 2013 to 2014.
 •	2016: 0.830 — below 1.0, no flag. Asset quality remained healthy in 2016. Under Armour's fraud did not involve shifting costs into intangible or hard-to-verify assets — their manipulation was specifically about revenue timing, not asset misclassification.
+
+SGI Results:
+•	2014: 1.440. Sales grew 44% from 2013 to 2014. Strong growth, high motive to maintain streak.
+•	2016: 1.220, sales grew 22% from 2015 to 2016. Still strong but slowing down; exactly the kind of deceleration that would pressure management to manipulate numbers to meet expectations.
+
+DEPI Results:
+•	2014: 0.965. Below 1.0, no flag. Depreciation rate slightly increased, normal.
+•	2016: 1.035. Marginally above 1.0, very weak flag. Company depreciated assets very slightly slower in 2016 vs 2015. Not a meaningful signal on its own.
+
+SGAI Results:
+•	2014: 0.923. Below 1.0, no flag. SG&A expenses grew slightly slower than revenue in 2014. Healthy cost management.
+•	2016: 1.003. Essentially 1.0, no meaningful flag. SG&A and revenue grew at almost identical rates in 2016.
+
+LVGI Results:
+•	2014: 4.044. This is extremely high. Under Armour's debt jumped from $53M in 2013 to $284M in 2014; a massive relative increase. This reflects a deliberate expansion strategy (borrowing to fund growth) rather than financial distress, so context matters here. Worth noting as a structural change in the company rather than a pure fraud signal.
+•	2016: 0.974. Below 1.0, no flag. Debt grew slower than assets in 2016, leverage actually improved slightly.
+
+TATA Results:
+•	2014: -0.063. Negative TATA means operating cash flow exceeded net income, which is actually healthy. Real cash coming in matches or exceeds reported profit.
+•	2016: -0.072. Also negative, same story. No flag. Interestingly Under Armour's cash generation stayed relatively honest even while they manipulated revenue timing, their TATA doesn't betray them here.
 
 
 The below code calculates all the ratios needed for the beneish formula.
